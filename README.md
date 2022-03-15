@@ -23,7 +23,38 @@
 
 
 ```swift
-func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) where T: Comparable{
+func solve1(_ arrayOne: [Int], _ arrayTwo: [Int]) {
+    var arrayMain: [Int] = []
+
+    func createDictionary(_ array: [Int]) -> [Int: [Int]] {
+        var dictionary = [Int: [Int]]()
+        for number in 0 ..< array.count {
+            var arrayNew = [Int]()
+            let element = array[number]
+            for item in array {
+                if item == element {
+                    arrayNew.append(element)
+                }
+            }
+            dictionary.updateValue(arrayNew, forKey: element)
+        }
+        return dictionary
+    }
+    let dictionaryOne = createDictionary(arrayOne)
+    let dictionaryTwo = createDictionary(arrayTwo)
+    for (_, arrayTwo) in dictionaryTwo.enumerated() {
+        let element = arrayTwo.key
+        let count = arrayTwo.value.count
+        let arrayOne = dictionaryOne[element]
+        if (arrayOne == nil || arrayOne?.count != count) {
+            arrayMain.append(element)
+        }
+    }
+    print(arrayMain.sorted())
+}
+//solve1(array1, array2)
+
+func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Comparable {
     var arrayMain: [T] = []
     func createDictionary(_ array: [T]) -> [T: [Int]] {
         var dictionary = [T: [Int]]()
@@ -41,7 +72,7 @@ func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) where T: Comparable{
     }
     let dictionaryOne = createDictionary(arrayOne)
     let dictionaryTwo = createDictionary(arrayTwo)
-    
+
     for (_, arrayTwo) in dictionaryTwo.enumerated() {
         let element = arrayTwo.key
         let count = arrayTwo.value.count
@@ -50,6 +81,7 @@ func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) where T: Comparable{
             arrayMain.append(element)
         }
     }
-    print("Answer: \(arrayMain.sorted(by: <))")
+    return arrayMain.sorted(by: <)
 }
+solve2(array1, array2)
 ```
