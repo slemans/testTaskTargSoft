@@ -46,7 +46,7 @@ func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) where T: Comparable{
         let element = arrayTwo.key
         let count = arrayTwo.value.count
         let arrayOne = dictionaryOne[element]
-        if (arrayOne == nil || arrayOne?.count != count) {
+        if (arrayOne?.count != count) {
             arrayMain.append(element)
         }
     }
