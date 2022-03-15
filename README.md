@@ -20,7 +20,9 @@
   <li>Do not leave comments on this Gist. They will be deleted.</li>
 </ul>
 <h2>Answer Swift)</h2>
-```
+
+
+```swift
 func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) where T: Comparable{
     var arrayMain: [T] = []
     func createDictionary(_ array: [T]) -> [T: [Int]] {
