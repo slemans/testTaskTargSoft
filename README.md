@@ -20,6 +20,8 @@
   <li>Do not leave comments on this Gist. They will be deleted.</li>
 </ul>
 <h2>Answer Swift)</h2>
+
+
 ```swift
 func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Comparable {
     var arrayMain: [T] = []
@@ -52,7 +54,9 @@ func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Compa
 }
 ```
 <h2>Comment from the company</h2>
-<p>Necessary use .reduce instead of for in for funcrion createDictionary</p>
+<p>Necessary use .reduce instead of (for in) in function createDictionary, grade: unsatisfactory</p>
+
+
 ```swift
    func createDictionary(_ array: [T]) -> [T: Int] {
         let array = array.reduce(into: [:]) { counts, element in
