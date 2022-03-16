@@ -23,7 +23,7 @@
 
 
 ```swift
-func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Comparable {
+func solve<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Comparable {
     var arrayMain: [T] = []
     func createDictionary(_ array: [T]) -> [T: [Int]] {
         var dictionary = [T: [Int]]()
