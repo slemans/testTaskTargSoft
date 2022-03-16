@@ -73,9 +73,9 @@ func solve2<T: Hashable>(_ arrayOne: [T], _ arrayTwo: [T]) -> [T] where T: Compa
     let dictionaryOne = createDictionary(arrayOne)
     let dictionaryTwo = createDictionary(arrayTwo)
 
-    for (_, arrayTwo) in dictionaryTwo.enumerated() {
-        let element = arrayTwo.key
-        let count = arrayTwo.value.count
+    dictionaryTwo.forEach { (number, array) in
+        let element = number
+        let count = array.count
         let arrayOne = dictionaryOne[element]
         if (arrayOne?.count != count) {
             arrayMain.append(element)
